@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA Activity Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #submit-to-google-sheet {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #form-description {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<form id="submit-to-google-sheet" name="submit-to-google-sheet">
+    <h2>MA Activity Tracker</h2>
+    <p id="form-description">
+        This form is purely to account the number of hours of sewa put in by the MA member.
+        It is taken to further report to DB on a quarterly basis as a reporting activity by MA Hamburg.
+    </p>
+
+    <label for="name">Name:</label>
+    <select id="name" name="name" required>
+        <option value="">-- select --</option>
+        <option value="PBn AARTI SATSANGI">PBn AARTI SATSANGI</option>
+        <option value="PBn AKANKSHA GUPTA">PBn AKANKSHA GUPTA</option>
+        <option value="PBn AKANKSHA SINGH">PBn AKANKSHA SINGH</option>
+        <option value="PBn ANUBHA PARASHAR">PBn ANUBHA PARASHAR</option>
+        <option value="PBn AVADHANULA DEEPSHIKHA">PBn AVADHANULA DEEPSHIKHA</option>
+        <option value="PBn ISHITA SHARMA BHATNAGAR">PBn ISHITA SHARMA BHATNAGAR</option>
+        <option value="PBn JAISHREE SINGH CHANDEL">PBn JAISHREE SINGH CHANDEL</option>
+        <option value="PBn JYOTI NAYAK GUDIPATI">PBn JYOTI NAYAK GUDIPATI</option>
+        <option value="PBn KHUSHBOO RAWAT">PBn KHUSHBOO RAWAT</option>
+        <option value="PBn MANJARI MATHUR">PBn MANJARI MATHUR</option>
+        <option value="PBn PANKHURI BHATNAGAR">PBn PANKHURI BHATNAGAR</option>
+        <option value="PBn PARUL SAXENA">PBn PARUL SAXENA</option>
+        <option value="PBn PUJA SINHA">PBn PUJA SINHA</option>
+        <option value="PBn RAJINDER KAUR">PBn RAJINDER KAUR</option>
+        <option value="PBn RAJUL DULONDEL">PBn RAJUL DULONDEL</option>
+        <option value="PBn RATNANJALI GANDHI">PBn RATNANJALI GANDHI</option>
+        <option value="PBn SARAN KUMAR GUPTA">PBn SARAN KUMAR GUPTA</option>
+        <option value="PBn SAVITA KUMAR">PBn SAVITA KUMAR</option>
+        <option value="PBn SEEMA MAHAJAN">PBn SEEMA MAHAJAN</option>
+        <option value="PBn SIMRAN MEHTA">PBn SIMRAN MEHTA</option>
+        <option value="PBn SNEHA KUMARI">PBn SNEHA KUMARI</option>
+        <option value="PBn SWARNIKA MEHAR">PBn SWARNIKA MEHAR</option>
+        <option value="PBn TAMANNA SATSANGI">PBn TAMANNA SATSANGI</option>
+        <option value="PBn TULIKA SHEEL">PBn TULIKA SHEEL</option>
+        <option value="PBn VINITA SHARMA">PBn VINITA SHARMA</option>
+        <option value="Pbn.CHAYAN R:KUMAR">Pbn.CHAYAN R:KUMAR</option>
+        <option value="Pbn.MERU DAS">Pbn.MERU DAS</option>
+        <option value="PBn.PARUL SACHDEV">PBn.PARUL SACHDEV</option>
+        <option value="Pbn.PRIYANKA TYAGI">Pbn.PRIYANKA TYAGI</option>
+        <option value="PBn.SHUBANGI SETH">PBn.SHUBANGI SETH</option>
+        <option value="PBn.SMRITI CAPRIHAN">PBn.SMRITI CAPRIHAN</option>
+        <option value="RITIKA NAGAR">RITIKA NAGAR</option>
+        <option value="KOPAL BHATNAGAR">KOPAL BHATNAGAR</option>
+        <option value="MAHIMA KUMAR">MAHIMA KUMAR</option>
+    </select>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="minutesOfWork">Minutes of work (numbers only):</label>
+    <input type="number" min="0" max="600" id="minutesOfWork" name="minutesOfWork" required>
+
+    <label for="sevaActivity">Seva Activity:</label>
+    <select id="sevaActivity" name="sevaActivity" required>
+        <option value="">-- select ---</option>
+        <option value="Textile">Textile</option>
+        <option value="Food">Food</option>
+        <option value="Art_Craft">Art & Craft</option>
+        <option value="Computer">Computer</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+    </select>
+
+    <label for="descriptionOfSeva">Description of Seva (optional):</label>
+    <textarea cols="25" id="descriptionOfSeva" name="descriptionOfSeva" required></textarea>
+
+    <button id="submit-button-sn" type="submit" value="Send">Send</button>
+</form>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzM_N12t2RaOKUTiZbCbpossiQCNLBeiueBiqcpa3dkefTWDnjHglAa0RVWZV_ec_dNag/exec';
+    const form = document.forms['submit-to-google-sheet'];
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show Bootstrap modal for confirmation
+            $('#confirmationModal').modal('show');
+
+            // Handle confirmation modal submit button click
+            $('#confirmSubmitBtn').on('click', function () {
+                form.style.display = 'none'; // hide the form immediately
+
+                // Show Bootstrap modal for loading
+                $('#loadingModal').modal('show');
+
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(function (response) {
+                        $('#loadingModal').modal('hide'); // hide loading modal
+
+                        if (response.ok) {
+                            // Show success modal
+                            $('#successModal').modal('show');
+
+                            // Reset the form and refresh the page after a delay
+                            setTimeout(() => {
+                                form.reset();
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            // Show failure modal
+                            $('#failureModal').modal('show');
+                            form.style.display = 'block'; // show the form again in case of error
+                        }
+                    })
+                    .catch(function (error) {
+                        $('#loadingModal').modal('hide'); // hide loading modal
+                        console.error('Error!', error.message);
+
+                        // Show failure modal
+                        $('#failureModal').modal('show');
+                        form.style.display = 'block'; // show the form again in case of error
+                    });
+            });
+        });
+    }
+
+</script>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to submit?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmSubmitBtn">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Modal -->
+<div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="loadingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Successfully saved!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Failure Modal -->
+<div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-labelledby="failureModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="failureModalLabel">Failure</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Failed to save. Please retry.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
