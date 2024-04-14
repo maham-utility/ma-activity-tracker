@@ -122,20 +122,56 @@
     <label for="date">Date:</label>
     <input type="date" id="date" name="date" required>
 
-    <label for="textileMinutesOfWork"><span style="color: blue;">Textile</span> Minutes of work:</label>
-    <input type="number" min="0" max="1440" value="0" id="textileMinutesOfWork" name="textileMinutesOfWork" required>
+    <label for="textileMinutesOfWork">Enter minutes of work, against each <span style="color: blue;">Activity</span></label>
+    <div class="col-auto">
+        <label class="sr-only" for="textileMinutesOfWork">Textile</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><span style="color: blue;">Textile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            </div>
+            <input type="number" class="form-control" min="0" max="600" id="textileMinutesOfWork" name="textileMinutesOfWork" required>
+        </div>
+    </div>
 
-    <label for="artCraftMinutesOfWork"><span style="color: blue;">Art_Craft</span> Minutes of work:</label>
-    <input type="number" min="0" max="1440" value="0" id="artCraftMinutesOfWork" name="artCraftMinutesOfWork" required>
+    <div class="col-auto">
+        <label class="sr-only" for="artCraftMinutesOfWork">Art_Craft</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><span style="color: blue;">Art & Craft&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            </div>
+            <input type="number" class="form-control" min="0" max="1440" id="artCraftMinutesOfWork" name="artCraftMinutesOfWork" required>
+        </div>
+    </div>
 
-    <label for="foodMinutesOfWork"><span style="color: blue;">Food</span> Minutes of work:</label>
-    <input type="number" min="0" max="1440" value="0" id="foodMinutesOfWork" name="foodMinutesOfWork" required>
+    <div class="col-auto">
+        <label class="sr-only" for="foodMinutesOfWork">Food</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><span style="color: blue;">Food&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            </div>
+            <input type="number" class="form-control" min="0" max="1440" id="foodMinutesOfWork" name="foodMinutesOfWork" required>
+        </div>
+    </div>
 
-    <label for="computerMinutesOfWork"><span style="color: blue;">Computer</span> Minutes of work:</label>
-    <input type="number" min="0" max="1440" value="0" id="computerMinutesOfWork" name="computerMinutesOfWork" required>
+    <div class="col-auto">
+        <label class="sr-only" for="computerMinutesOfWork">Computer</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><span style="color: blue;">Computer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            </div>
+            <input type="number" class="form-control" min="0" max="1440" id="computerMinutesOfWork" name="computerMinutesOfWork" required>
+        </div>
+    </div>
 
-    <label for="miscMinutesOfWork"><span style="color: blue;">Miscellaneous</span> Minutes of work:</label>
-    <input type="number" min="0" max="1440" value="0" id="miscMinutesOfWork" name="miscMinutesOfWork" required>
+    <div class="col-auto">
+        <label class="sr-only" for="miscMinutesOfWork">Miscellaneous</label>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text"><span style="color: blue;">Miscellaneous</span></div>
+            </div>
+            <input type="number" class="form-control" min="0" max="1440" id="miscMinutesOfWork" name="miscMinutesOfWork" required>
+        </div>
+    </div>
 
     <label for="descriptionOfSeva">Description of Seva (optional):</label>
     <textarea cols="25" id="descriptionOfSeva" name="descriptionOfSeva" required></textarea>
@@ -143,7 +179,7 @@
     <button id="submit-button-sn" type="submit" value="Send">Send</button>
 </form>
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbysFzcGrOx23EI7wF3ZWFyGvVPzxv-xjHbCy00Vg0HulmH-Vh9qtz7p8Cwn5MF14q4vTw/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwd1uY5yt4ZDuuIaytzbNTHR6rTmrWWw1gQXt3EJn4SNTG5W0HJxuQFNNpEfqAuXijA/exec';
     const form = document.forms['submit-to-google-sheet'];
 
     if (form) {
