@@ -121,18 +121,20 @@
     <label for="date">Date:</label>
     <input type="date" id="date" name="date" required>
 
-    <label for="minutesOfWork">Minutes of work (numbers only):</label>
-    <input type="number" min="0" max="600" id="minutesOfWork" name="minutesOfWork" required>
+    <label for="textileMinutesOfWork"><span style="color: blue;">Textile</span> Minutes of work:</label>
+    <input type="number" min="0" max="600" id="textileMinutesOfWork" name="textileMinutesOfWork" required>
 
-    <label for="sevaActivity">Seva Activity:</label>
-    <select id="sevaActivity" name="sevaActivity" required>
-        <option value="">-- select ---</option>
-        <option value="Textile">Textile</option>
-        <option value="Food">Food</option>
-        <option value="Art_Craft">Art & Craft</option>
-        <option value="Computer">Computer</option>
-        <option value="Miscellaneous">Miscellaneous</option>
-    </select>
+    <label for="artCraftMinutesOfWork"><span style="color: blue;">Art_Craft</span> Minutes of work:</label>
+    <input type="number" min="0" max="600" id="artCraftMinutesOfWork" name="artCraftMinutesOfWork" required>
+
+    <label for="foodMinutesOfWork"><span style="color: blue;">Food</span> Minutes of work:</label>
+    <input type="number" min="0" max="600" id="foodMinutesOfWork" name="foodMinutesOfWork" required>
+
+    <label for="computerMinutesOfWork"><span style="color: blue;">Computer</span> Minutes of work:</label>
+    <input type="number" min="0" max="600" id="computerMinutesOfWork" name="computerMinutesOfWork" required>
+
+    <label for="miscMinutesOfWork"><span style="color: blue;">Miscellaneous</span> Minutes of work:</label>
+    <input type="number" min="0" max="600" id="miscMinutesOfWork" name="miscMinutesOfWork" required>
 
     <label for="descriptionOfSeva">Description of Seva (optional):</label>
     <textarea cols="25" id="descriptionOfSeva" name="descriptionOfSeva" required></textarea>
